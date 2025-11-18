@@ -87,6 +87,78 @@ export const portfolioData = {
                 label: "Git",
                 color: "#F05032"
             },
+            {
+                id: 7,
+                icon: "bx bxl-html5",
+                label: "HTML5",
+                color: "#E34F26"
+            },
+            {
+                id: 8,
+                icon: "bx bxl-css3",
+                label: "CSS3",
+                color: "#264DE4"
+            },
+            {
+                id: 9,
+                icon: "bx bxl-mongodb",
+                label: "MongoDB",
+                color: "#47A248"
+            },
+            {
+                id: 10,
+                icon: "bx bxl-github",
+                label: "GitHub",
+                color: "#181717"
+            },
+            {
+                id: 11,
+                icon: "bx bxl-vitejs",
+                label: "Vite",
+                color: "#646CFF"
+            },
+            {
+                id: 12,
+                icon: "bx bxl-flutter",
+                label: "Flutter",
+                color: "#02569B"
+            },
+            {
+                id: 13,
+                icon: "bx bxl-dart",
+                label: "Dart",
+                color: "#0175C2"
+            },
+            {
+                id: 14,
+                icon: "bx bxl-python",
+                label: "Python",
+                color: "#3776AB"
+            },
+            {
+                id: 15,
+                icon: "bx bxl-bootstrap",
+                label: "Bootstrap",
+                color: "#7952B3"
+            },
+            {
+                id: 16,
+                icon: "bx bxl-figma",
+                label: "Figma",
+                color: "#F24E1E"
+            },
+            {
+                id: 17,
+                icon: "bx bxl-canva",
+                label: "Canva",
+                color: "#00C4CC"
+            },
+            {
+                id: 18,
+                icon: "bx bxl-google-cloud",
+                label: "Google Cloud",
+                color: "#4285F4"
+            }
             
         ]
     }
