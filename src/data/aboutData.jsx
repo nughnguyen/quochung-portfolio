@@ -10,7 +10,7 @@ const aboutData = {
         { label: "Email", value: "hungnq.august.work@gmail.com", icon: "bx bx-envelope" },
         { label: "Phone", value: "+84 388 205 003", icon: "bx bx-phone" },
         { label: "Education", value: "Eastern International University", icon: "bx bx-book" },
-        { label: "GPA", value: "3.00 / 4.00", icon: "bx bx-award" },
+        { label: "GPA", value: "3.50 / 4.00", icon: "bx bx-award" },
     ],
 
     resume: {
