@@ -28,16 +28,28 @@ const Navbar = () => {
 
   
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setActiveId(entry.target.id);
-                    }
-                });
-            },
-            { threshold: 0.6 }
-        );
+        // Use a slightly larger rootMargin to detect sections entering the center area
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -60% 0px',
+            threshold: 0.1,
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            // Sort entries by intersection ratio so the most visible section wins
+            const visible = entries
+                .filter((e) => e.isIntersecting)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+            if (visible.length > 0) {
+                const newId = visible[0].target.id;
+                // If user is on a legal page, do not change activeId
+                const hash = (window.location.hash || '').slice(1);
+                if (!['privacy', 'terms', 'sitemap'].includes(hash)) {
+                    setActiveId(newId);
+                }
+            }
+        }, observerOptions);
 
         navbarData.forEach((item) => {
             const section = document.getElementById(item.id);
