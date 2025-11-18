@@ -103,7 +103,9 @@ const Footer = () => {
       </div>
 
       {/* Divider */}
-      <hr className="my-8 border-gray-800 dark:border-gray-700" />
+      <div className="my-8 max-w-7xl mx-auto px-4">
+        <hr className="border-gray-300 dark:border-gray-600" />
+      </div>
 
       {/* Bottom Footer */}
       <div className="mt-8 max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-800 dark:text-white gap-4">
