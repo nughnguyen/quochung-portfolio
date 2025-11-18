@@ -113,48 +113,30 @@ export const portfolioData = {
             },
             {
                 id: 11,
-                icon: "bx bxl-vitejs",
-                label: "Vite",
-                color: "#646CFF"
-            },
-            {
-                id: 12,
                 icon: "bx bxl-flutter",
                 label: "Flutter",
                 color: "#02569B"
             },
             {
-                id: 13,
-                icon: "bx bxl-dart",
-                label: "Dart",
-                color: "#0175C2"
-            },
-            {
-                id: 14,
+                id: 12,
                 icon: "bx bxl-python",
                 label: "Python",
                 color: "#3776AB"
             },
             {
-                id: 15,
+                id: 13,
                 icon: "bx bxl-bootstrap",
                 label: "Bootstrap",
                 color: "#7952B3"
             },
             {
-                id: 16,
+                id: 14,
                 icon: "bx bxl-figma",
                 label: "Figma",
                 color: "#F24E1E"
             },
             {
-                id: 17,
-                icon: "bx bxl-canva",
-                label: "Canva",
-                color: "#00C4CC"
-            },
-            {
-                id: 18,
+                id: 15,
                 icon: "bx bxl-google-cloud",
                 label: "Google Cloud",
                 color: "#4285F4"
