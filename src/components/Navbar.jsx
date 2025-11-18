@@ -9,6 +9,23 @@ const Navbar = () => {
   
     const currentYear = () => new Date().getFullYear();
 
+    // Sync navbar with URL hash (for Privacy, Terms, Sitemap pages)
+    useEffect(() => {
+        const handleHashChange = () => {
+            const hash = window.location.hash.slice(1) || 'home';
+            // Map privacy, terms, sitemap to home (hide navbar highlighting for these pages)
+            if (['privacy', 'terms', 'sitemap'].includes(hash)) {
+                setActiveId(null);
+            } else {
+                setActiveId(hash);
+            }
+        };
+
+        handleHashChange();
+        window.addEventListener('hashchange', handleHashChange);
+        return () => window.removeEventListener('hashchange', handleHashChange);
+    }, []);
+
   
     useEffect(() => {
         const observer = new IntersectionObserver(

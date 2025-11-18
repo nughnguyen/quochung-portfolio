@@ -14,11 +14,13 @@ import Sitemap from './components/Sitemap';
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
 
-  // Handle hash-based navigation
+  // Handle hash-based navigation and scroll to top
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1) || 'home';
       setCurrentPage(hash);
+      // Scroll to top
+      window.scrollTo(0, 0);
     };
 
     handleHashChange();
