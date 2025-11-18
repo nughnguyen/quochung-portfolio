@@ -13,8 +13,8 @@ const Home = () => {
     const titles = homeData.typingTexts;
     const currentTitle = titles[currentIndex];
 
-    const typeSpeed = isDeleting ? 100 : 150;
-    const pauseTime = isDeleting ? 500 : 2000;
+    const typeSpeed = isDeleting ? 100 : 120;
+    const pauseTime = isDeleting ? 400 : 900;
 
     const timer = setTimeout(() => {
       if (!isDeleting) {
@@ -52,7 +52,7 @@ const Home = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-5rem)] py-12">
           <div className="space-y-8">
-            <div className="space-y-4 animate-fade-in">
+            <div className="space-y-4 anim-fade-in">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-800 dark:text-white whitespace-pre-wrap">
                 {homeData.title}
               </h1>
@@ -70,11 +70,11 @@ const Home = () => {
             </div>
 
 
-            <p className="text-lg text-gray-800 dark:text-white leading-relaxed max-w-lg animate-fade-in" style={{ animationDelay: "0.1s" }}>
+            <p className="text-lg text-gray-800 dark:text-white leading-relaxed max-w-lg anim-fade-in anim-delay-100">
               {homeData.description}
             </p>
 
-            <div className="flex items-center space-x-4 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+            <div className="flex items-center space-x-4 anim-fade-in anim-delay-200">
               <span className="text-gray-800 dark:text-white font-medium">
                 Follow me on:
               </span>
@@ -97,7 +97,7 @@ const Home = () => {
             </div>
 
 
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+            <div className="flex flex-col sm:flex-row gap-4 anim-fade-in anim-delay-300">
               {homeData.buttons.map((btn, index) => (
                 <Tippy content={btn.label} key={index} placement="top">
                   {btn.href && btn.href !== "#" ? (
@@ -142,15 +142,14 @@ const Home = () => {
 
        
             {/* Quick Stats Heading */}
-            <h4 className="flex items-center gap-2 text-lg font-semibold mb-4 text-gray-800 dark:text-white animate-fade-in" style={{ animationDelay: "0.4s" }}>
+            <h4 className="flex items-center gap-2 text-lg font-semibold mb-4 text-gray-800 dark:text-white anim-fade-in anim-delay-400">
               <i className="bx bx-bar-chart-alt text-base" />
               Quick Stats:
             </h4>
 
             {/* Stats Grid */}
             <div
-              className="grid grid-cols-2 sm:grid-cols-4 text-sm text-gray-800 dark:text-white gap-6 mt-2 animate-fade-in"
-              style={{ animationDelay: "0.5s" }}
+              className="grid grid-cols-2 sm:grid-cols-4 text-sm text-gray-800 dark:text-white gap-6 mt-2 anim-fade-in anim-delay-500"
             >
               {homeData.stats.map((item, index) => (
                 <div
@@ -171,7 +170,7 @@ const Home = () => {
           </div>
 
 
-          <div className="relative flex justify-center items-center animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <div className="relative flex justify-center items-center anim-fade-in anim-delay-200">
             <div className="relative z-10">
               <img
                 src={homeData.img}
@@ -198,9 +197,7 @@ const Home = () => {
                   <div
                     className={`absolute ${positions[index % positions.length]
                       } w-12 h-12 sm:w-16 sm:h-16 bg-gray-800 text-white dark:bg-white dark:text-gray-800 dark:border  rounded-full drop-shadow-2xl shadow-lg dark:shadow-gray-800 flex items-center justify-center hover:scale-110 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 animate-float cursor-pointer`}
-                    style={{
-                      animationDelay: `${index * 0.5}s`,
-                    }}
+                    style={{ animationDelay: `${index * 120}ms` }}
                   >
                     <i className={`${tech.icon} text-xl sm:text-2xl`}></i>
                   </div>
@@ -212,50 +209,7 @@ const Home = () => {
           </div>
         </div>
 
-        <style>{`
-          @keyframes float {
-            0%,
-            100% {
-              transform: translateY(0px);
-            }
-            50% {
-              transform: translateY(-10px);
-            }
-          }
-          @keyframes fadeIn {
-            from {
-              opacity: 0;
-              transform: translateY(10px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-          .animate-float {
-            animation: float 3s ease-in-out infinite;
-          }
-          .animate-fade-in {
-            animation: fadeIn 0.6s ease-out forwards;
-            opacity: 0;
-          }
-          .shadow-3xl {
-            box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
-          }
-          .dark .shadow-3xl {
-            box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.5);
-          }
-          .typing-text {
-            display: inline-block;
-          }
-          .cursor {
-            font-weight: 600;
-            color: #1f2937;
-          }
-          .dark .cursor {
-            color: #d1d5db;
-          }
-        `}</style>
+        
       </div>
     </section>
   );

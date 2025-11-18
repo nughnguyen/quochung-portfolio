@@ -37,16 +37,12 @@ const Portfolio = () => {
     return (
         <section
             id="portofolio"
-            className="min-h-screen pb-20 bg-white dark:bg-gray-800 pt-20"
-            data-aos-duration="1000"
-            data-aos="fade-down"
+            className="min-h-screen pb-20 bg-white dark:bg-gray-800 pt-20 anim-fade-in"
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Title & Subtitle */}
                 <div
-                    className="text-center mb-12 text-gray-800"
-                    data-aos-delay="600"
-                    data-aos="fade-down"
+                    className="text-center mb-12 text-gray-800 anim-fade-in"
                 >
                     <h2 className="text-5xl font-bold dark:text-white mb-2">
                         {portfolioData.sectionTitle.title}
@@ -58,9 +54,7 @@ const Portfolio = () => {
 
                 {/* Tabs Menu */}
                 <div
-                    className="flex justify-center mb-8 gap-4 flex-wrap"
-                    data-aos-delay="600"
-                    data-aos="fade-down"
+                    className="flex justify-center mb-8 gap-4 flex-wrap anim-fade-in anim-delay-100"
                 >
                     {[
                         { value: "projects", label: "Projects", icon: "bx bx-briefcase" },
@@ -87,14 +81,13 @@ const Portfolio = () => {
                     {activeTab === "projects" && (
                         <div>
                             <div
-                                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-                                data-aos-delay="600"
-                                data-aos="fade-down"
+                                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 anim-fade-in anim-delay-200"
                             >
-                                {getCurrentItems().map((project) => (
+                                {getCurrentItems().map((project, idx) => (
                                     <div
                                         key={project.id}
-                                        className="bg-white dark:bg-gray-800 border border-white rounded-lg p-6 shadow-lg hover:-translate-y-1 transition-transform"
+                                        className="bg-white dark:bg-gray-800 border border-white rounded-lg p-6 shadow-lg hover:-translate-y-1 transition-transform anim-fade-in"
+                                        style={{ animationDelay: `${(idx % itemsPerPage) * 70}ms` }}
                                     >
                                         <img
                                             src={project.img}
@@ -174,15 +167,12 @@ const Portfolio = () => {
                     {/* Certificates Tab */}
                     {activeTab === "certificates" && (
                         <div>
-                            <div
-                                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-                                data-aos-delay="600"
-                                data-aos="fade-down"
-                            >
-                                {getCurrentItems().map((certificate) => (
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 anim-fade-in anim-delay-200">
+                                {getCurrentItems().map((certificate, idx) => (
                                     <div
                                         key={certificate.id}
-                                        className="bg-white dark:bg-gray-800 border border-white rounded-lg shadow-lg hover:-translate-y-1 transition-transform overflow-hidden"
+                                        className="bg-white dark:bg-gray-800 border border-white rounded-lg shadow-lg hover:-translate-y-1 transition-transform overflow-hidden anim-fade-in"
+                                        style={{ animationDelay: `${(idx % itemsPerPage) * 70}ms` }}
                                     >
                                         <img
                                             src={certificate.img}
@@ -229,15 +219,12 @@ const Portfolio = () => {
                     {/* Tech Stack Tab */}
                     {activeTab === "tech" && (
                         <div>
-                            <div
-                                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-                                data-aos-delay="600"
-                                data-aos="fade-down"
-                            >
-                                {getCurrentItems().map((tech) => (
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 anim-fade-in anim-delay-200">
+                                {getCurrentItems().map((tech, idx) => (
                                     <div
                                         key={tech.id}
-                                        className="bg-white dark:bg-gray-800 border border-white rounded-lg p-6 shadow-lg hover:-translate-y-1 transition-transform flex flex-col items-center justify-center gap-4"
+                                        className="bg-white dark:bg-gray-800 border border-white rounded-lg p-6 shadow-lg hover:-translate-y-1 transition-transform flex flex-col items-center justify-center gap-4 anim-fade-in"
+                                        style={{ animationDelay: `${(idx % itemsPerPage) * 70}ms` }}
                                     >
                                         <i
                                             className={`${tech.icon}  text-6xl`}

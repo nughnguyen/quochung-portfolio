@@ -6,16 +6,16 @@ const Contact = () => {
   const [activeTab, setActiveTab] = useState("contact");
 
   return (
-    <section id="contact" className="min-h-screen pb-20 bg-white dark:bg-gray-800 pt-20" data-aos-duration="1000" data-aos="fade-down">
+    <section id="contact" className="min-h-screen pb-20 bg-white dark:bg-gray-800 pt-20 anim-fade-in">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title & Subtitle */}
-        <div className="text-center mb-12 text-gray-800" data-aos-delay="600" data-aos="fade-down">
+        <div className="text-center mb-12 text-gray-800 anim-fade-in">
           <h2 className="text-5xl font-bold dark:text-white mb-2">{contactData.title}</h2>
           <p className="text-lg dark:text-gray-400">{contactData.subtitle}</p>
         </div>
 
         {/* Tabs Menu */}
-        <div className="flex justify-center mb-8 gap-4 flex-wrap" data-aos-delay="600" data-aos="fade-down">
+        <div className="flex justify-center mb-8 gap-4 flex-wrap anim-fade-in anim-delay-100">
           {[
             { value: "contact", label: "Contact Me", icon: "bx bx-envelope" },
             { value: "support", label: "Support Me", icon: "bx bx-heart" },
@@ -37,10 +37,10 @@ const Contact = () => {
 
         {/* Tabs Content */}
         <div>
-          {activeTab === "contact" && (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto" data-aos-delay="600" data-aos="fade-down">
+            {activeTab === "contact" && (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto anim-fade-in anim-delay-200">
               {/* Left Side: Contact Info (like index.html) */}
-              <div className="flex flex-col justify-start">
+              <div className="flex flex-col justify-start anim-fade-in anim-delay-200">
                 <p className="text-gray-800 dark:text-white mb-6 leading-relaxed">
                   {contactData.contactInfo.description}
                 </p>
@@ -84,7 +84,7 @@ const Contact = () => {
               </div>
 
               {/* Right Side: Contact Form */}
-              <div className="rounded-lg py-12 px-7 shadow-lg border border-gray-200 dark:border-gray-700 h-fit">
+              <div className="rounded-lg py-12 px-7 shadow-lg border border-gray-200 dark:border-gray-700 h-fit anim-slide-up anim-delay-200">
                 <h3 className="text-xl font-semibold mb-6 text-gray-800 dark:text-white flex items-center gap-2">
                   <i className="bx bx-envelope text-lg" />
                   Send Me a Message
@@ -126,7 +126,7 @@ const Contact = () => {
           )}
 
           {activeTab === "support" && (
-            <div className="grid gap-4 max-w-xl mx-auto" data-aos-delay="600" data-aos="fade-down">
+            <div className="grid gap-4 max-w-xl mx-auto anim-fade-in anim-delay-200">
               {contactData.supportPlatforms.map((item, index) => (
                 <div
                   key={index}

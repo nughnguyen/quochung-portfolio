@@ -180,13 +180,11 @@ const Testimonials = () => {
     return (
         <section
             id="testimonials"
-            className="pt-20 min-h-screen  overflow-hidden px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800"
-            data-aos-duration="1000"
-            data-aos="fade-down"
+            className="pt-20 min-h-screen  overflow-hidden px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800 anim-fade-in"
         >
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
-                <div className="text-center mb-16" data-aos-delay="600" data-aos="fade-down">
+                <div className="text-center mb-16 anim-fade-in">
                     <h2 className="text-5xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4">
                         What People Say
                     </h2>
@@ -196,7 +194,7 @@ const Testimonials = () => {
                 </div>
 
                 {/* Testimonial Card */}
-                <div className="bg-white dark:bg-gray-800 rounded-lg mb-10 shadow-lg border border-white dark:border-white max-w-4xl mx-auto" data-aos-delay="600" data-aos="fade-up">
+                <div className="bg-white dark:bg-gray-800 rounded-lg mb-10 shadow-lg border border-white dark:border-white max-w-4xl mx-auto anim-fade-in anim-delay-200">
                     {/* Card Header */}
                     <div className="flex justify-between items-center p-6 border-b border-gray-200 dark:border-gray-700">
                         <h3 className="text-xl font-semibold text-gray-800 dark:text-white flex items-center gap-2">
@@ -221,9 +219,9 @@ const Testimonials = () => {
                                 {testimonials.map((testimonial, index) => (
                                     <div
                                         key={testimonial.id}
-                                        className="bg-white shadow-lg dark:border dark:border-white dark:bg-gray-800 rounded-lg p-4 transition-all duration-300"
+                                        className="bg-white shadow-lg dark:border dark:border-white dark:bg-gray-800 rounded-lg p-4 transition-all duration-300 anim-fade-in"
                                         style={{
-                                            animationDelay: `${index * 100}ms`
+                                            animationDelay: `${index * 60}ms`
                                         }}
                                     >
                                         {/* Quote Icon */}

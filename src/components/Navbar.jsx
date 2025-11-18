@@ -78,7 +78,7 @@ const Navbar = () => {
     };
     return (
         <>
-            <nav className="bg-white fixed top-0 left-0 w-full z-50 p-1.5 overflow-hidden shadow-lg dark:bg-gray-800 transition-all duration-300" data-aos-duration="1000" data-aos="fade-down">
+            <nav className="bg-white fixed top-0 left-0 w-full z-50 p-1.5 overflow-hidden shadow-lg dark:bg-gray-800 transition-all duration-300 anim-fade-in">
                 <div className="container">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="flex items-center justify-between py-4">

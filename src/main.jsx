@@ -6,10 +6,6 @@ import 'tippy.js/dist/tippy.css';
 
 
 import 'boxicons/css/boxicons.min.css';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
-AOS.init({duration: 1000, once: false, easing: "ease-in-out"});
 
 
 createRoot(document.getElementById('root')).render(
