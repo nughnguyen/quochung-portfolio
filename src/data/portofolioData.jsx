@@ -42,11 +42,11 @@ export const portfolioData = {
             },
             {
                 id: 2,
-                img: "/assets/certificates/cert2.jpg",
+                img: "/assets/certificates/certificate-of-proficiency-nguyen-quoc-hung-achievement-08-13-2025.jpg",
             },
             {
                 id: 3,
-                img: "/assets/certificates/cert3.jpg",
+                img: "/assets/certificates/training-certificate-nguyen-quoc-hung-recognition-5-28-2025.jpg",
             }
         ],
 
