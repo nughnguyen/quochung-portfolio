@@ -26,7 +26,7 @@ export const portfolioData = {
             },
             {
                 id: 3,
-                img: "/assets/projects/project2.png",
+                img: "/assets/projects/project.png",
                 title: "Personal Portfolio Website",
                 subtitle: "Your work deserves a beautiful showcase.",
                 desc: "A sleek and responsive personal portfolio built with Vite and Tailwind CSS. This site features categorized project sections, certificates, and a dynamic tech stack. Optimized for both desktop and mobile experiences, it reflects professional branding with clean code.",
