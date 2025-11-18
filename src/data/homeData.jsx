@@ -61,7 +61,7 @@ const homeData = {
     },
     {
       label: "GPA",
-      value: "NULL / 4.00",
+      value: "3.50 / 4.00",
       icon: "bx bx-award",
     },
   ],
