@@ -86,7 +86,7 @@ const Portfolio = () => {
                                 {getCurrentItems().map((project, idx) => (
                                     <div
                                         key={project.id}
-                                        className="bg-white dark:bg-gray-800 border border-white rounded-lg p-6 shadow-lg hover:-translate-y-1 transition-transform anim-fade-in"
+                                        className="bg-white dark:bg-gray-800 border border-white rounded-lg p-6 shadow-lg anim-fade-in card-hover"
                                         style={{ animationDelay: `${(idx % itemsPerPage) * 70}ms` }}
                                     >
                                         <img
@@ -171,7 +171,7 @@ const Portfolio = () => {
                                 {getCurrentItems().map((certificate, idx) => (
                                     <div
                                         key={certificate.id}
-                                        className="bg-white dark:bg-gray-800 border border-white rounded-lg shadow-lg hover:-translate-y-1 transition-transform overflow-hidden anim-fade-in"
+                                        className="bg-white dark:bg-gray-800 border border-white rounded-lg shadow-lg overflow-hidden anim-fade-in card-hover"
                                         style={{ animationDelay: `${(idx % itemsPerPage) * 70}ms` }}
                                     >
                                         <img
@@ -223,7 +223,7 @@ const Portfolio = () => {
                                 {getCurrentItems().map((tech, idx) => (
                                     <div
                                         key={tech.id}
-                                        className="bg-white dark:bg-gray-800 border border-white rounded-lg p-6 shadow-lg hover:-translate-y-1 transition-transform flex flex-col items-center justify-center gap-4 anim-fade-in"
+                                        className="bg-white dark:bg-gray-800 border border-white rounded-lg p-6 shadow-lg flex flex-col items-center justify-center gap-4 anim-fade-in card-hover"
                                         style={{ animationDelay: `${(idx % itemsPerPage) * 70}ms` }}
                                     >
                                         <i
