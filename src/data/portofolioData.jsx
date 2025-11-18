@@ -8,7 +8,7 @@ export const portfolioData = {
         projects: [
             {
                 id: 1,
-                img: "/assets/project3.png",
+                img: "/assets/projects/project3.png",
                 title: "GPA | Score Calculator",
                 subtitle: "Calculate your GPA with ease and accuracy.",
                 desc: "GPA | Score Calculator is a user-friendly web application designed to help students calculate their Grade Point Average (GPA) efficiently. With a clean interface and intuitive input methods, users can quickly input their grades and credits to get an accurate GPA calculation. Perfect for students aiming to track their academic performance.",
@@ -17,7 +17,7 @@ export const portfolioData = {
             },
             {
                 id: 2,
-                img: "/assets/project1.png",
+                img: "/assets/projects/project1.png",
                 title: "GumballZ Learning App API",
                 subtitle: "Backend Server for Data Synchronization (CSV/Google Sheets)",
                 desc: "A robust backend server developed to store and manage data extracted from CSV and Google Sheets files. It provides a user-friendly API allowing the Learning App to easily synchronize and retrieve data. Features an intuitive, eye-catching interface for administration.",
@@ -26,7 +26,7 @@ export const portfolioData = {
             },
             {
                 id: 3,
-                img: "/assets/project.png",
+                img: "/assets/projects/project2.png",
                 title: "Personal Portfolio Website",
                 subtitle: "Your work deserves a beautiful showcase.",
                 desc: "A sleek and responsive personal portfolio built with Vite and Tailwind CSS. This site features categorized project sections, certificates, and a dynamic tech stack. Optimized for both desktop and mobile experiences, it reflects professional branding with clean code.",
@@ -38,15 +38,15 @@ export const portfolioData = {
         certificates: [
             {
                 id: 1,
-                img: "/assets/cert.jpg"
+                img: "/assets/certificates/uiux-learning-certificate-nguyen-quoc-hung-training-01-22-2025.jpg"
             },
             {
                 id: 2,
-                img: "/assets/cert.jpg",
+                img: "/assets/certificates/cert2.jpg",
             },
             {
                 id: 3,
-                img: "/assets/cert.jpg",
+                img: "/assets/certificates/cert3.jpg",
             }
         ],
 
