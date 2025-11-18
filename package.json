@@ -13,6 +13,7 @@
     "@supabase/supabase-js": "^2.50.1",
     "@tailwindcss/vite": "^4.1.10",
     "@tippyjs/react": "^4.2.6",
+    "animejs": "^4.2.2",
     "aos": "^2.3.4",
     "boxicons": "^2.1.4",
     "gh-pages": "^6.3.0",

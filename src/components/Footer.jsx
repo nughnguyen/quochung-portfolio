@@ -1,8 +1,34 @@
+import { useEffect } from 'react';
+import anime from 'animejs';
 import footerData from "../data/footerData.jsx";
 import Tippy from '@tippyjs/react';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 const Footer = () => {
+  useEffect(() => {
+    // Chỉ chạy nếu có dữ liệu letters
+    if (!footerData.brand.letters || footerData.brand.letters.length === 0) return;
+
+    const paths = document.querySelectorAll('.quoc-hung-svg .letter-path');
+    if (paths.length === 0) return;
+
+    // Thiết lập strokeDasharray cho hiệu ứng vẽ nét
+    paths.forEach(path => {
+      const totalLength = path.getTotalLength();
+      path.style.strokeDasharray = totalLength;
+      path.style.strokeDashoffset = totalLength;
+    });
+
+    // Animation: vẽ lần lượt từng nét
+    anime({
+      targets: '.letter-path',
+      strokeDashoffset: 0,
+      easing: 'easeOutQuart',
+      duration: 1000,
+      delay: anime.stagger(70), // 70ms giữa mỗi nét
+    });
+  }, []);
+
   return (
     <footer className="bg-white dark:bg-gray-900 text-gray-800 dark:text-white py-12">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
@@ -12,8 +38,37 @@ const Footer = () => {
             <i className={`${footerData.brand.icon} text-base`}></i>
             <span className="font-normal">{footerData.brand.name}</span>
           </div>
-          <div className="mt-2">
-            <span className="text-2xl font-extrabold text-gray-800 dark:text-white quoc-hung-text">{footerData.brand.description}</span>
+          <div className="mt-2 flex justify-center">
+            <svg
+              viewBox="0 0 1200 120"
+              className="quoc-hung-svg w-full max-w-4xl text-gray-800 dark:text-white"
+              aria-label="Nguyen Quoc Hung"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <g
+                stroke="currentColor"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+              >
+                {footerData.brand.letters.map((letter, idx) => {
+                  // Tính khoảng cách ngang cho mỗi chữ (điều chỉnh 80 nếu cần)
+                  const xOffset = letter.char === " " ? 40 : 80;
+                  return (
+                    <g
+                      key={idx}
+                      className="letter-group"
+                      transform={`translate(${idx * 80}, 0)`}
+                    >
+                      {letter.paths.map((d, pIdx) => (
+                        <path key={pIdx} className="letter-path" d={d} />
+                      ))}
+                    </g>
+                  );
+                })}
+              </g>
+            </svg>
           </div>
         </div>
 
@@ -66,7 +121,6 @@ const Footer = () => {
             <i className="bx bx-mail-send text-base" />
             {footerData.formSubscription.title}
           </h4>
-
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
             {footerData.formSubscription.description}
           </p>
@@ -94,12 +148,8 @@ const Footer = () => {
                 <i className="bx bx-send text-[1.2rem] translate-y-[1px]" />
               </button>
             </Tippy>
-
-
           </form>
         </div>
-
-
       </div>
 
       {/* Divider */}
@@ -107,7 +157,6 @@ const Footer = () => {
 
       {/* Bottom Footer */}
       <div className="mt-8 max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-800 dark:text-white gap-4">
-        {/* Legal Links */}
         <div className="flex gap-4 flex-wrap">
           {footerData.legalLinks.map((link, index) => (
             <a
@@ -119,14 +168,10 @@ const Footer = () => {
             </a>
           ))}
         </div>
-
-
-        {/* Copyright */}
         <div className="text-center md:text-right">
           {footerData.copyright}
         </div>
       </div>
-
     </footer>
   );
 };
