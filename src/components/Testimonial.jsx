@@ -3,8 +3,8 @@ import { createClient } from "@supabase/supabase-js";
 import Swal from "sweetalert2";
 
 // Inisialisasi Supabase client
-const supabaseUrl = "https://yifexgkxhzlndrrdpnqh.supabase.co";
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlpZmV4Z2t4aHpsbmRycmRwbnFoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA5NDQ1NTAsImV4cCI6MjA2NjUyMDU1MH0.D-Y3Bbuqk5ZMdbDAeW0kvgs_44NxSGJmXePauhWY6vA";
+const supabaseUrl = "https://axbmjpmljmvkifqjxhep.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF4Ym1qcG1sam12a2lmcWp4aGVwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM1NzA1NTAsImV4cCI6MjA3OTE0NjU1MH0.09sM1L9MLJQQ2p9FMhkSzpnrMRrICv8-vYd5_-WCs98";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const CustomModal = ({ isOpen, onClose, children }) => {
@@ -40,10 +40,12 @@ const Testimonials = () => {
         name: '',
         email: '',
         content: '',
-        position: ''
+        position: '',
+        rating: 5
     });
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [sortBy, setSortBy] = useState('newest');
 
     // Fetch testimonials dari Supabase saat komponen mount
     useEffect(() => {
@@ -77,6 +79,21 @@ const Testimonials = () => {
         }
     };
 
+    // Handle rating change
+    const handleRatingChange = (rating) => {
+        setFormData(prev => ({
+            ...prev,
+            rating
+        }));
+        // Clear rating error when user selects a rating
+        if (errors.rating) {
+            setErrors(prev => ({
+                ...prev,
+                rating: ''
+            }));
+        }
+    };
+
     // Validate form
     const validateForm = () => {
         const newErrors = {};
@@ -101,6 +118,10 @@ const Testimonials = () => {
             newErrors.position = 'Position is required';
         }
 
+        if (!formData.rating || formData.rating < 1 || formData.rating > 5) {
+            newErrors.rating = 'Please select a rating between 1 and 5 stars';
+        }
+
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
@@ -120,7 +141,7 @@ const Testimonials = () => {
                 email: formData.email,
                 content: formData.content,
                 position: formData.position,
-                rating: 5,
+                rating: formData.rating,
                 avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(formData.name)}&background=1f2937&color=fff&size=100`
             }
         ]);
@@ -128,10 +149,11 @@ const Testimonials = () => {
         if (error) {
             setIsSubmitting(false);
             console.error('Error submitting testimonial:', error);
+            console.error('Error details:', error.message, error.details, error.hint);
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Failed to submit testimonial. Please try again.',
+                text: `Failed to submit testimonial: ${error.message || 'Please try again.'}`,
                 confirmButtonColor: '#1f2937',
                 customClass: {
                     popup: 'dark:bg-gray-800 dark:text-white',
@@ -143,13 +165,22 @@ const Testimonials = () => {
         }
 
         // Refresh testimonials
-        const { data } = await supabase
-            .from('testimonials')
-            .select('*')
-            .order('created_at', { ascending: false });
+        let query = supabase.from('testimonials').select('*');
+
+            if (sortBy === 'newest') {
+                query = query.order('created_at', { ascending: false });
+            } else if (sortBy === 'oldest') {
+                query = query.order('created_at', { ascending: true });
+            } else if (sortBy === 'highest') {
+                query = query.order('rating', { ascending: false }).order('created_at', { ascending: false });
+            } else if (sortBy === 'lowest') {
+                query = query.order('rating', { ascending: true }).order('created_at', { ascending: false });
+            }
+
+        const { data } = await query;
         setTestimonials(data || []);
 
-        setFormData({ name: '', email: '', content: '', position: '' });
+        setFormData({ name: '', email: '', content: '', position: '', rating: 5 });
         setIsModalOpen(false);
         setIsSubmitting(false);
 
@@ -202,14 +233,27 @@ const Testimonials = () => {
                             Testimonials
                         </h3>
 
-                        <button
-                            onClick={() => setIsModalOpen(true)}
-                            className="px-6 py-2 bg-gray-800 ml-3 text-white dark:bg-white dark:text-gray-800 rounded-lg font-medium  flex items-center gap-2 transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg"
-                            aria-label="Add a new testimonial"
-                        >
-                            <i className="bx bx-plus text-lg" />
-                            Add Testimonial
-                        </button>
+                        <div className="flex items-center gap-3">
+                            <select
+                                value={sortBy}
+                                onChange={(e) => setSortBy(e.target.value)}
+                                className="px-3 py-2 bg-white dark:bg-gray-800 text-gray-800 dark:text-white border border-gray-200 dark:border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-gray-800"
+                            >
+                                <option value="newest">Mới nhất</option>
+                                <option value="oldest">Cũ nhất</option>
+                                <option value="highest">Sao cao → thấp</option>
+                                <option value="lowest">Sao thấp → cao</option>
+                            </select>
+
+                            <button
+                                onClick={() => setIsModalOpen(true)}
+                                className="px-6 py-2 bg-gray-800 ml-3 text-white dark:bg-white dark:text-gray-800 rounded-lg font-medium  flex items-center gap-2 transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg"
+                                aria-label="Add a new testimonial"
+                            >
+                                <i className="bx bx-plus text-lg" />
+                                Add Testimonial
+                            </button>
+                        </div>
                     </div>
 
                     {/* Card Body (Scrollable) */}
@@ -255,6 +299,9 @@ const Testimonials = () => {
                                                 </h4>
                                                 <p className="text-xs text-gray-800 dark:text-white">
                                                     {testimonial.position}
+                                                </p>
+                                                <p className="text-xs text-gray-500 dark:text-gray-400">
+                                                    {new Date(testimonial.created_at).toLocaleString()}
                                                 </p>
                                             </div>
                                         </div>
@@ -372,6 +419,36 @@ const Testimonials = () => {
                                 <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
                                     <i className="bx bx-error-circle" />
                                     {errors.position}
+                                </p>
+                            )}
+                        </div>
+
+                        {/* Rating Input */}
+                        <div>
+                            <label className="block text-sm font-medium text-gray-800 dark:text-white mb-1">
+                                Rating
+                            </label>
+                            <div className="flex items-center gap-2">
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <button
+                                        key={star}
+                                        type="button"
+                                        onClick={() => handleRatingChange(star)}
+                                        className={`text-2xl transition-colors ${
+                                            star <= formData.rating
+                                                ? 'text-yellow-400 hover:text-yellow-500'
+                                                : 'text-gray-300 hover:text-yellow-400'
+                                        }`}
+                                        aria-label={`Rate ${star} star${star > 1 ? 's' : ''}`}
+                                    >
+                                        <i className="bx bxs-star" />
+                                    </button>
+                                ))}
+                            </div>
+                            {errors.rating && (
+                                <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
+                                    <i className="bx bx-error-circle" />
+                                    {errors.rating}
                                 </p>
                             )}
                         </div>
