@@ -4,6 +4,29 @@ import Tippy from '@tippyjs/react';
 
 const Contact = () => {
   const [activeTab, setActiveTab] = useState("contact");
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    try {
+      const response = await fetch(contactData.formspreeEndpoint, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      if (response.ok) {
+        setShowSuccess(true);
+        setTimeout(() => setShowSuccess(false), 3000);
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      alert('Something went wrong. Please try again.');
+    }
+  };
 
   return (
     <section id="contact" className="min-h-screen pb-20 bg-white dark:bg-gray-800 pt-20 anim-fade-in">
@@ -89,7 +112,7 @@ const Contact = () => {
                   <i className="bx bx-envelope text-lg" />
                   Send Me a Message
                 </h3>
-                <form action={contactData.formspreeEndpoint} method="POST" className="grid gap-4">
+                <form onSubmit={handleSubmit} className="grid gap-4">
                   <input
                     type="text"
                     placeholder="Your Name"
@@ -111,10 +134,16 @@ const Contact = () => {
                     className="p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-700 text-gray-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-gray-800 dark:focus:ring-white"
                     rows="5"
                   />
+                  {showSuccess && (
+                    <div className="mb-4 p-3 bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-100 rounded-lg text-center">
+                      Thanks, sent successfully!
+                    </div>
+                  )}
                   <Tippy content="Send your message" placement="top">
                     <button
                       type="submit"
-                      className="px-4 py-3 bg-gray-800 dark:bg-white text-white dark:text-gray-800 rounded-lg font-medium flex items-center justify-center gap-2 transition-all transform hover:-translate-y-1 hover:shadow-lg"
+                      className="px-4 py-3 bg-gray-800 dark:bg-white text-white dark:text-gray-800 rounded-lg font-medium flex items-center justify-center gap-2 transition-all transform hover:-translate-y-1 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                      disabled={showSuccess}
                     >
                       Send
                       <i className="bx bx-send text-[1.2rem] translate-y-[1px]" />
