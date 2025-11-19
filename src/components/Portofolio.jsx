@@ -6,7 +6,7 @@ import 'tippy.js/dist/tippy.css';
 const Portfolio = () => {
     const [activeTab, setActiveTab] = useState("projects");
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 6;
+    const itemsPerPage = activeTab === "projects" ? 3 : 6;
 
     // Get current items based on tab and page
     const getCurrentItems = () => {

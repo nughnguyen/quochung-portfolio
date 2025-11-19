@@ -32,6 +32,15 @@ export const portfolioData = {
                 desc: "A sleek and responsive personal portfolio built with Vite and Tailwind CSS. This site features categorized project sections, certificates, and a dynamic tech stack. Optimized for both desktop and mobile experiences, it reflects professional branding with clean code.",
                 demo: "#",
                 tags: ["Vite", "React", "Tailwind CSS", "JavaScript"]
+            },
+            {
+                id: 4,
+                img: "/assets/projects/project4.png",
+                title: "QRCode Generator",
+                subtitle: "Generate QR codes quickly and easily.",
+                desc: "A simple and efficient QR code generator that allows users to create custom QR codes for URLs, text, and more. With a user-friendly interface, users can generate and download QR codes in various formats. Perfect for personal and business use.",
+                demo: "https://nughnguyen.github.io/qr-code-generator/",
+                tags: ["HTML", "CSS", "JavaScript"]
             }
         ],
 

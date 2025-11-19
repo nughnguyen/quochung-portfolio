@@ -14,13 +14,23 @@ import Sitemap from './components/Sitemap';
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
 
-  // Handle hash-based navigation and scroll to top
+  // Handle hash-based navigation and scroll behavior
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1) || 'home';
       setCurrentPage(hash);
-      // Scroll to top
-      window.scrollTo(0, 0);
+      // Define main sections that are part of the single-page layout
+      const mainSections = ['home', 'about', 'portofolio', 'testimonials', 'contact'];
+      if (mainSections.includes(hash)) {
+        // Scroll to the section element
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        // For other pages (privacy, terms, sitemap), scroll to top
+        window.scrollTo(0, 0);
+      }
     };
 
     handleHashChange();
