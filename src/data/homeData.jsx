@@ -10,13 +10,14 @@ const homeData = {
   buttons: [
     {
       label: "Explore My Project",
-      href: "#",
+      href: "#portofolio",
       type: "primary",
     },
     {
       label: "Download My CV",
-      href: "#",
+      href: "/cv.pdf",
       type: "secondary",
+      download: true,
     },
   ],
   floatingIcons: [

@@ -90,22 +90,34 @@ const About = () => {
 
 
                         <Tippy content="Download My Resume">
-                            <button
-                                onClick={() => {
-                                    Swal.fire({
-                                        title: "Not Available Yet 😅",
-                                        text: "My resume is still in progress. Please check back later!",
-                                        icon: "info",
-                                        confirmButtonColor: "#1F2937",
-                                        confirmButtonText: "Alright",
-                                    });
-                                }}
-                                className={`${resumeButtonClasses} anim-fade-in anim-delay-200`}
-                                aria-label="Download Resume"
-                            >
-                                <i className={`${aboutData.resume.icon} text-lg mr-2`} aria-hidden="true"></i>
-                                {aboutData.resume.label}
-                            </button>
+                            {aboutData.resume.href ? (
+                                <a
+                                    href={aboutData.resume.href}
+                                    download={aboutData.resume.download}
+                                    className={`${resumeButtonClasses} anim-fade-in anim-delay-200`}
+                                    aria-label="Download Resume"
+                                >
+                                    <i className={`${aboutData.resume.icon} text-lg mr-2`} aria-hidden="true"></i>
+                                    {aboutData.resume.label}
+                                </a>
+                            ) : (
+                                <button
+                                    onClick={() => {
+                                        Swal.fire({
+                                            title: "Not Available Yet 😅",
+                                            text: "My resume is still in progress. Please check back later!",
+                                            icon: "info",
+                                            confirmButtonColor: "#1F2937",
+                                            confirmButtonText: "Alright",
+                                        });
+                                    }}
+                                    className={`${resumeButtonClasses} anim-fade-in anim-delay-200`}
+                                    aria-label="Download Resume"
+                                >
+                                    <i className={`${aboutData.resume.icon} text-lg mr-2`} aria-hidden="true"></i>
+                                    {aboutData.resume.label}
+                                </button>
+                            )}
                         </Tippy>
                     </div>
                 </div>

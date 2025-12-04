@@ -15,8 +15,9 @@ const aboutData = {
 
     resume: {
         label: "Download My Resume",
-        href: null,
+        href: "/resume.pdf",
         icon: "bx bx-download",
+        download: true,
     },
 
     aboutNarrative: {

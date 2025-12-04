@@ -109,6 +109,7 @@ const Home = () => {
                         }`}
                       target={btn.href.startsWith("http") ? "_blank" : "_self"}
                       rel="noopener noreferrer"
+                      download={btn.download}
                     >
                       <i className={`bx ${btn.type === "primary" ? "bx-download" : "bx-envelope"} mr-2`} />
                       {btn.label}
