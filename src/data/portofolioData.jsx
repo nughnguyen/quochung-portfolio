@@ -16,22 +16,13 @@ export const portfolioData = {
                 tags: ["HTML", "Tailwind CSS", "JavaScript"]
             },
             {
-                id: 5,
-                img: "/assets/projects/project1.png",
-                title: "GumballZ Learning App API",
-                subtitle: "Backend Server for Data Synchronization (CSV/Google Sheets)",
-                desc: "A robust backend server developed to store and manage data extracted from CSV and Google Sheets files. It provides a user-friendly API allowing the Learning App to easily synchronize and retrieve data. Features an intuitive, eye-catching interface for administration.",
-                demo: "https://gumballz-learning-api.vercel.app/",
-                tags: ["HTML", "Tailwind CSS", "JavaScript"]
-            },
-            {
-                id: 4,
-                img: "/assets/projects/project.png",
-                title: "Personal Portfolio Website",
-                subtitle: "Your work deserves a beautiful showcase.",
-                desc: "A sleek and responsive personal portfolio built with Vite and Tailwind CSS. This site features categorized project sections, certificates, and a dynamic tech stack. Optimized for both desktop and mobile experiences, it reflects professional branding with clean code.",
-                demo: "#",
-                tags: ["Vite", "React", "Tailwind CSS", "JavaScript"]
+                id: 2,
+                img: "/assets/projects/project5.png",
+                title: "Universe Controller",
+                subtitle: "Control your universe.",
+                desc: "Universe Controller is a web application that allows users to control their universe. With a user-friendly interface, users can control their universe in various formats. Perfect for personal and business use.",
+                demo: "https://universe-control.vercel.app/",
+                tags: ["HTML", "CSS", "JavaScript"]
             },
             {
                 id: 3,
@@ -43,13 +34,22 @@ export const portfolioData = {
                 tags: ["HTML", "CSS", "JavaScript"]
             },
             {
-                id: 2,
-                img: "/assets/projects/project5.png",
-                title: "Universe Controller",
-                subtitle: "Control your universe.",
-                desc: "Universe Controller is a web application that allows users to control their universe. With a user-friendly interface, users can control their universe in various formats. Perfect for personal and business use.",
-                demo: "https://universe-control.vercel.app/",
-                tags: ["HTML", "CSS", "JavaScript"]
+                id: 4,
+                img: "/assets/projects/project.png",
+                title: "Personal Portfolio Website",
+                subtitle: "Your work deserves a beautiful showcase.",
+                desc: "A sleek and responsive personal portfolio built with Vite and Tailwind CSS. This site features categorized project sections, certificates, and a dynamic tech stack. Optimized for both desktop and mobile experiences, it reflects professional branding with clean code.",
+                demo: "#",
+                tags: ["Vite", "React", "Tailwind CSS", "JavaScript"]
+            },
+            {
+                id: 5,
+                img: "/assets/projects/project1.png",
+                title: "GumballZ Learning App API",
+                subtitle: "Backend Server for Data Synchronization (CSV/Google Sheets)",
+                desc: "A robust backend server developed to store and manage data extracted from CSV and Google Sheets files. It provides a user-friendly API allowing the Learning App to easily synchronize and retrieve data. Features an intuitive, eye-catching interface for administration.",
+                demo: "https://gumballz-learning-api.vercel.app/",
+                tags: ["HTML", "Tailwind CSS", "JavaScript"]
             }
         ],
 
