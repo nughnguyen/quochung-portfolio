@@ -16,7 +16,7 @@ export const portfolioData = {
                 tags: ["HTML", "Tailwind CSS", "JavaScript"]
             },
             {
-                id: 2,
+                id: 5,
                 img: "/assets/projects/project1.png",
                 title: "GumballZ Learning App API",
                 subtitle: "Backend Server for Data Synchronization (CSV/Google Sheets)",
@@ -25,7 +25,7 @@ export const portfolioData = {
                 tags: ["HTML", "Tailwind CSS", "JavaScript"]
             },
             {
-                id: 3,
+                id: 4,
                 img: "/assets/projects/project.png",
                 title: "Personal Portfolio Website",
                 subtitle: "Your work deserves a beautiful showcase.",
@@ -34,12 +34,21 @@ export const portfolioData = {
                 tags: ["Vite", "React", "Tailwind CSS", "JavaScript"]
             },
             {
-                id: 4,
+                id: 3,
                 img: "/assets/projects/project4.png",
                 title: "QRCode Generator",
                 subtitle: "Generate QR codes quickly and easily.",
                 desc: "A simple and efficient QR code generator that allows users to create custom QR codes for URLs, text, and more. With a user-friendly interface, users can generate and download QR codes in various formats. Perfect for personal and business use.",
                 demo: "https://nughnguyen.github.io/qr-code-generator/",
+                tags: ["HTML", "CSS", "JavaScript"]
+            },
+            {
+                id: 2,
+                img: "/assets/projects/project5.png",
+                title: "Universe Controller",
+                subtitle: "Control your universe.",
+                desc: "Universe Controller is a web application that allows users to control their universe. With a user-friendly interface, users can control their universe in various formats. Perfect for personal and business use.",
+                demo: "https://universe-control.vercel.app/",
                 tags: ["HTML", "CSS", "JavaScript"]
             }
         ],
